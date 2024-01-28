@@ -8,16 +8,6 @@ form.addEventListener('submit', addPromise);
 function addPromise(event) {
     event.preventDefault();
     const { delay, state } = event.currentTarget.elements;
-    console.log(delay.value, state.value);
-
-    if (!delay.value || !state.value) {
-        iziToast.error({
-            title: 'Error',
-            message: 'Заповніть всі поля!',
-            position: "topCenter",
-        });
-        return
-    }
 
     createPromise(delay.value, state.value)
         .then(() => iziToast.success({
